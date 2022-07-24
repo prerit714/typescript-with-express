@@ -1,5 +1,5 @@
 import { Request, Response } from "express";
-import { USERS } from "../db-data";
+import { REPOSITORY, USERS } from "../db-data";
 import { IUser } from "../interfaces";
 
 export function addNewUserToDatabase(req: Request, res: Response) {
@@ -20,8 +20,8 @@ export function addNewUserToDatabase(req: Request, res: Response) {
       // Add the new user to the database
       const { username, password, role } = inputUser;
       let isUsernameAlreadyExisting = false;
-      for (let i = 0; i < USERS.length; ++i) {
-        const user = USERS[i];
+      for (let i = 0; i < REPOSITORY.users.length; ++i) {
+        const user = REPOSITORY.users[i];
         if (user.username === username) {
           isUsernameAlreadyExisting = true;
           break;
@@ -29,7 +29,9 @@ export function addNewUserToDatabase(req: Request, res: Response) {
       }
       if (!isUsernameAlreadyExisting) {
         console.log(`[addNewUserToDatabse()] New user is added to database`);
-        USERS.push({ username, password, role });
+        const repositoryUsersCopy = [...REPOSITORY.users];
+        repositoryUsersCopy.push({ username, password, role });
+        REPOSITORY.users = repositoryUsersCopy;
         res.status(200).json({
           data: {
             userAdded: { username, password, role },
@@ -49,4 +51,8 @@ export function addNewUserToDatabase(req: Request, res: Response) {
       error: [`Invalid user body format!`],
     });
   }
+}
+
+export function getAllUsers(req: Request, res: Response) {
+  const allUsers = [...REPOSITORY.users];
 }

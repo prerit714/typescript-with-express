@@ -1,5 +1,5 @@
 import { Request, Response } from "express";
-import { USERS } from "../db-data";
+import { REPOSITORY, USERS } from "../db-data";
 import { IUser } from "../interfaces";
 
 export function userLogin(req: Request, res: Response) {
@@ -23,8 +23,8 @@ export function userLogin(req: Request, res: Response) {
     });
   } else {
     let userFound: IUser | null = null;
-    for (let i = 0; i < USERS.length; ++i) {
-      const user = USERS[i];
+    for (let i = 0; i < REPOSITORY.users.length; ++i) {
+      const user = REPOSITORY.users[i];
       if (
         user.username === inputUser.username &&
         user.password === inputUser.password
