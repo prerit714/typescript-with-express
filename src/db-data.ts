@@ -1,6 +1,6 @@
 import { IUser } from "./interfaces";
 
-export let USERS: ReadonlyArray<IUser> = [
+export const USERS: Array<IUser> = [
   {
     username: "prerit",
     password: "prerit714",

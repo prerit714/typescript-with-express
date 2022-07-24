@@ -5,6 +5,7 @@ import { PORT_NUMBER } from "./constants";
 import { userLogin } from "./routes/auth.route";
 import bodyParser from "body-parser";
 import { internalServerErrorHandler } from "./routes/error.route";
+import { addNewUserToDatabase } from "./routes/user.route";
 
 const app: Application = express();
 
@@ -25,6 +26,9 @@ app.get("/", ping);
 
 // Auth routes
 app.post("/login", userLogin);
+
+// User routes
+app.post("/add-new-user", addNewUserToDatabase);
 
 app.listen(PORT_NUMBER, () =>
   console.log(`[Express()] Running on ${PORT_NUMBER}`)
