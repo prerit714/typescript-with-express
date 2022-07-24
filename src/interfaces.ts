@@ -8,14 +8,15 @@ export interface IUser {
 }
 
 export interface IProduct {
-  id: string;
   name: string;
   price: number;
+  category: "laptop" | "phone";
   soldTo?: IUser;
   soldBy?: IUser;
 }
 
 export interface IRepository {
+  users: ReadonlyArray<IUser>;
   products: ReadonlyArray<IProduct>;
 }
 
