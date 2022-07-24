@@ -54,11 +54,10 @@ export function addNewUserToDatabase(req: Request, res: Response) {
 }
 
 export function getAllUsers(req: Request, res: Response) {
-  // Create a copy of users
-  const allUsers = Array.from(REPOSITORY.users);
-  // Update the passwords to undefined
-  allUsers.forEach((user) => (user.password = undefined));
-
+  const allUsers = Array.from(REPOSITORY.users).map((user) => ({
+    ...user,
+    password: undefined,
+  }));
   res.status(200).json({
     data: allUsers,
     errors: null,
