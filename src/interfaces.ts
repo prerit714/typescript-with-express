@@ -22,7 +22,7 @@ export interface ITransaction {
 }
 
 // Utility interfaces
-export interface PartialProductAndPartialUser {
+export interface IPartialProductAndPartialUser {
   user: Partial<IUser>;
   product: Partial<IProduct>;
 }

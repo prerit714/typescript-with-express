@@ -1,9 +1,9 @@
 import { Request, Response } from "express";
 import { REPOSITORY } from "../db-data";
-import { IUser, PartialProductAndPartialUser } from "../interfaces";
+import { IUser, IPartialProductAndPartialUser } from "../interfaces";
 
 export function addProductToUserHavingUsername(req: Request, res: Response) {
-  const requestBody = req.body as PartialProductAndPartialUser;
+  const requestBody = req.body as IPartialProductAndPartialUser;
   const requestBodyKeys = Object.keys(requestBody);
 
   if (
