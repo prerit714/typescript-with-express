@@ -1,5 +1,5 @@
 import { Request, Response } from "express";
-import { REPOSITORY, USERS } from "../db-data";
+import { REPOSITORY } from "../db-data";
 import { IUser } from "../interfaces";
 
 export function addNewUserToDatabase(req: Request, res: Response) {
