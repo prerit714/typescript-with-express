@@ -20,3 +20,9 @@ export interface ITransaction {
   type: "+" | "-";
   amount: number;
 }
+
+// Utility interfaces
+export interface PartialProductAndPartialUser {
+  user: Partial<IUser>;
+  product: Partial<IProduct>;
+}

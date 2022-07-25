@@ -13,7 +13,7 @@ export function addNewUserToDatabase(req: Request, res: Response) {
   if (truthyArray.every((value) => value === true)) {
     if (!["seller", "buyer"].includes(inputUser.role)) {
       res.status(401).json({
-        data: {},
+        data: null,
         error: [`Invalid role given!`],
       });
     } else {
