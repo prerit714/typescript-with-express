@@ -60,8 +60,6 @@ export function addNewUserToDatabase(req: Request, res: Response) {
 export function getAllUsers(_req: Request, res: Response) {
   const allUsers = Array.from(REPOSITORY.users).map((user) => ({
     ...user,
-    // password: undefined,
-    // hasProducts: undefined,
   }));
   res.status(200).json({
     data: allUsers,
