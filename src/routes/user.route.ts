@@ -28,7 +28,11 @@ export function addNewUserToDatabase(req: Request, res: Response) {
         }
       }
       if (!isUsernameAlreadyExisting) {
-        console.log(`[addNewUserToDatabse()] New user is added to database`);
+        console.log(
+          "[addNewUserToDatabse()] New user",
+          inputUser,
+          "is added to database"
+        );
         const repositoryUsersCopy = [...REPOSITORY.users];
         repositoryUsersCopy.push({ username, password, role });
         REPOSITORY.users = repositoryUsersCopy;

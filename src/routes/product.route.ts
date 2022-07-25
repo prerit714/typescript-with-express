@@ -69,9 +69,10 @@ export function addProductToUserHavingUsername(req: Request, res: Response) {
       userFoundProductsCopy.push({ name, price, category });
       userFound.hasProducts = userFoundProductsCopy;
       console.log(
-        "[addNewUserToDatabase()] Added ",
+        "[addProductToUserHavingUsername()] Added",
         { name, price, category },
-        "to database"
+        "to",
+        username
       );
       res.status(200).json({
         data: {
@@ -96,9 +97,10 @@ export function addProductToUserHavingUsername(req: Request, res: Response) {
   userFound.hasProducts = userFoundProductsCopy;
 
   console.log(
-    "[addNewUserToDatabase()] Added ",
+    "[addProductToUserHavingUsername()] Added",
     { name, price, category },
-    "to database"
+    "to",
+    username
   );
 
   res.status(200).json({
