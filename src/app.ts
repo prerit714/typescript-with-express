@@ -7,6 +7,7 @@ import bodyParser from "body-parser";
 import { internalServerErrorHandler } from "./routes/error.route";
 import { addNewUserToDatabase, getAllUsers } from "./routes/user.route";
 import { addProductToUserHavingUsername } from "./routes/product.route";
+import { doTransaction } from "./routes/transaction.route";
 
 const app: Application = express();
 
@@ -34,6 +35,9 @@ app.get("/get-all-users", getAllUsers);
 
 // Product routes
 app.post("/add-product", addProductToUserHavingUsername);
+
+// Transaction routes
+app.post("/do-transaction", doTransaction);
 
 app.listen(PORT_NUMBER, () =>
   console.log(`[Express()] Running on ${PORT_NUMBER}`)

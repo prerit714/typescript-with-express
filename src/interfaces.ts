@@ -26,3 +26,9 @@ export interface IPartialProductAndPartialUser {
   user: Partial<IUser>;
   product: Partial<IProduct>;
 }
+
+export interface IProductTransactionRequestBody {
+  fromUser: Partial<IUser>;
+  toUser: Partial<IUser>;
+  product: Partial<IProduct>;
+}
